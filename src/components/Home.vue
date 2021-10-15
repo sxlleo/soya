@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     主页
+    <p>adfad f</p>
   </div>
 </template>
 
@@ -14,5 +15,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+  .home {
+    p{
+      color: red;
+    }
+  }
 </style>

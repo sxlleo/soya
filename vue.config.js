@@ -9,7 +9,15 @@ const config = {
     config.resolve.alias
       .set("@$", resolve("src"))
       .set("@packages", resolve("packages"));
-  }
+  },
+  css: {
+    loaderOptions: {
+      less: {
+        // DO NOT REMOVE THIS LINE
+        javascriptEnabled: true
+      }
+    }
+  },
 }
 
 module.exports = config;
