@@ -2,9 +2,11 @@
   <div :class="['top-header', `style${theme}`]">
     <div class="content">
       <div class="left">
-        <img class="btn logo" :src='logoUrl[theme-1]' alt="" @click="onClickLogo">
-        <span class="btn" @click="onClickWorks">WORKS</span>
-        <span class="btn" @click="onClickAbout">ABOUT</span>
+        <router-link to="home" class="logo">
+          <img class="btn" :src='logoUrl[theme-1]' alt="" @click="onClickLogo">
+        </router-link>
+        <router-link to="works" class="btn">WORKS</router-link>
+        <router-link to="about" class="btn">ABOUT</router-link>
       </div>
       <a class="right btn" href="mailto:sxldongman@163.com">CONTANT US</a>
     </div>
@@ -12,7 +14,6 @@
 </template>
 
 <script>
-// const icon = require("@img/")
 export default {
     name: "TopHeader",
     props: {
@@ -35,15 +36,6 @@ export default {
         console.log();
         this.$router.push('home')
       },
-      // 点击作品
-      onClickWorks() {
-        console.log();
-        this.$router.push('works')
-      },
-      // 点击关于
-      onClickAbout() {
-        this.$router.push('contact')
-      }
     }
 }
 </script>
@@ -88,9 +80,11 @@ export default {
     color: white;
     line-height: 100%;
     cursor: pointer;
+    text-decoration:none;
   }
   .logo{
     width: 120px;
+    display: inline-flex;
   }
 }
 .style1{

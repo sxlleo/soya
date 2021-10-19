@@ -13,7 +13,7 @@
             <img :class="['hoverimg', {show: hoverIndex==1}]" :src="imgs.hover1" alt="">
           </div>
           <img class="logo-item" :src="imgs.logoY" alt="">
-          <div class="logo-item" @mouseenter="() => {onHover(2)}" @mouseleave="onMouseLeave" @click="goWork">
+          <div class="logo-item" @mouseenter="() => {onHover(2)}" @mouseleave="onMouseLeave" @click="goAbout">
             <img :src="imgs.logoA" alt="">
             <img :class="['hoverimg', {show: hoverIndex==2}]" :src="imgs.hover2" alt="">
           </div>
@@ -100,6 +100,9 @@ export default {
     goWork(){
       this.$router.push('works')
     },
+    goAbout() {
+      this.$router.push('about')
+    }, 
     onMouseMove(evt) {
       const p1 = [evt.clientX, evt.clientY];
       const p2 = [this.eyeStyle.left + this.eyeStyle.radius, this.eyeStyle.top + this.eyeStyle.radius];

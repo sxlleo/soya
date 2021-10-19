@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Works from './components/Works.vue'
 import Home from './components/Home.vue'
-import Contact from "./components/Contact";
+import About from "./components/About";
 
 Vue.use(VueRouter);
 
@@ -10,7 +10,7 @@ const routes = [
   { path: '/', name: "home", component: Home },
   { path: '/home', name: "home", component: Home },
   { path: '/works', name: "works", component: Works },
-  { path: '/contact', name: "contact", component: Contact },
+  { path: '/about', name: "about", component: About },
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置
