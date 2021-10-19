@@ -30,12 +30,6 @@ export default {
           require('../assets/images/works/logo.png'),
         ]
       }
-    },
-    methods: {
-      onClickLogo() {
-        console.log();
-        this.$router.push('home')
-      },
     }
 }
 </script>

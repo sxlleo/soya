@@ -50,9 +50,6 @@ export default {
       this.hoverIndex = 0;
     }
   },
-  mounted(){
-    console.log('mounted')
-  },
   created() {
     const gifContext = require.context("../assets/gif", false);
     const imgContext = require.context("../assets/images/cover", false);
@@ -71,7 +68,6 @@ export default {
       const arr = result.slice(pos, pos + 3);
       gitConfig.push([...arr])
       pos += 3;
-      console.log(arr);
     }
     this.gifConfig = Object.freeze(gitConfig);
   }
