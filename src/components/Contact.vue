@@ -22,13 +22,13 @@
           <p class="info">深圳市 南山区<br/>
                           卓越前海壹号<br/>
                           A座 2802号</p>
-          <p class="info">yangfan@soyastudio.net<br/>
+          <p class="info en">yangfan@soyastudio.net<br/>
                           186 3389 7990</p>
-          <p class="info">Nanshan, Shenzhen<br/>
+          <p class="info en">Nanshan, Shenzhen<br/>
                           Excellent Group<br/>
                           Qianhai No.1<br/>
                           Tower A #2802</p>
-          <div class="info rect">
+          <div class="info rect en">
             <p class="">www.soyastudio.net</p>
             <p class="address">
               <a class="zcool" target="_blank" href="https://www.zcool.com.cn/u/15601279">Zcool</a>
@@ -49,13 +49,7 @@ export default {
   name: "Contact",
   components:{
     TopHeader
-  },
-  data() {
-    return {
-    };
-  },
-  created() {
-  },
+  }
 }
 </script>
 
@@ -77,6 +71,7 @@ export default {
   align-items: flex-start;
   margin-bottom: 45px;
   .title{
+    font-family: 'Montserrat';
     min-width: 290px;
     width: 290px;
     text-align: left;
@@ -93,6 +88,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     // width: 550px;
+    .en {
+      font-family: 'Montserrat';
+      font-weight: 400;
+    }
     .info{
       min-width: 290px;
       margin-bottom: 52px;

@@ -54,6 +54,8 @@ export default {
   align-items: flex-end;
 }
 .top-header {
+  font-family: 'Montserrat';
+  font-weight: bold;
   width: 100%;
   background-color: #000;
   padding:4% 4% 8%;

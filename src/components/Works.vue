@@ -121,10 +121,10 @@ export default {
     }
   }
   .footer{
+    font-family: 'Montserrat';
     text-align: left;
     margin: 0 4% 4%;
     font-size: 20px;
-    font-weight: bold;
     p{
       display: inline-block;
     }
