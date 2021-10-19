@@ -7,8 +7,8 @@ function resolve(dir) {
 const config = {
   chainWebpack: config => {
     config.resolve.alias
-      .set("@gif", resolve("gif"))
-      .set("@img", resolve("images"))
+      .set("@gif", resolve("src/assets/gif"))
+      .set("@img", resolve("src/assets/images"))
   },
   css: {
     loaderOptions: {

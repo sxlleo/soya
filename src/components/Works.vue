@@ -2,7 +2,7 @@
   <div class="works">
     <TopHeader :theme="2"></TopHeader>
     <div class="poster">
-      <img src="../../images/works/works.png" alt="">
+      <img src="../assets/images/works/works.png" alt="">
     </div>
     <div class="imgs">
       <div class="row" v-for="(gifArr, index) in gifConfig" :key="index">
@@ -54,12 +54,12 @@ export default {
     console.log('mounted')
   },
   created() {
-    const gifContext = require.context("../../gif", false);
-    const imgContext = require.context("../../images/cover", false);
+    const gifContext = require.context("../assets/gif", false);
+    const imgContext = require.context("../assets/images/cover", false);
     const result = gifContext.keys().map((item, index) => {
       return {
-        card: require('../../gif/' + item.slice(2)),
-        hover: require("../../images/cover/" + imgContext.keys()[index].slice(2))
+        card: require('../assets/gif/' + item.slice(2)),
+        hover: require("../assets/images/cover/" + imgContext.keys()[index].slice(2))
       }
     });
 

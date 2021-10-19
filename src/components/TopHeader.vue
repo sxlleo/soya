@@ -25,8 +25,8 @@ export default {
     data() {
       return {
         logoUrl:[
-          require('../../images/contact/logo.png'),
-          require('../../images/works/logo.png'),
+          require('../assets/images/contact/logo.png'),
+          require('../assets/images/works/logo.png'),
         ]
       }
     },

@@ -36,9 +36,9 @@
             </p>
           </div>
         </div>
-        <img class="image" src="../../images/contact/QRcode.png" alt="">
+        <img class="image" src="../assets/images/contact/QRcode.png" alt="">
       </div>
-      <img src="../../images/contact/footer.png" alt="" class="footer">
+      <img src="../assets/images/contact/footer.png" alt="" class="footer">
     </div>
   </div>
 </template>
