@@ -2,7 +2,7 @@
   <div class="works">
     <TopHeader :theme="2"></TopHeader>
     <div class="poster">
-      <img src="../assets/images/works/works.png" alt="">
+      <img src="../assets/images/works/poster.png" alt="">
     </div>
     <div class="imgs">
       <div class="row" v-for="(gifArr, index) in gifConfig" :key="index">
@@ -10,14 +10,16 @@
           v-for="(gif, gifIndex) in gifArr"
           :key="`gif${gifIndex}`"
           @mouseenter="() => {onHover(`${index}/${gifIndex}`)}" 
-          @mouseleave="onMouseLeave">
+          @mouseleave="onMouseLeave"
+          @click='() => {onClickWork(gif.url)}'
+        >
           <img :src='gif.card' alt="" >
           <img :class="['hover', {show: hoverIndex == `${index}/${gifIndex}`}]" :src='gif.hover' alt="">
         </div>
       </div>
     </div>
     <div class="footer">
-      <p>Copyright © 2021 SOYA Studio. All rights reserved.</p>
+      <p>COPYRIGHT © 2021 SOYA STUDIO. ALL RIGHTS RESERVED.</p>
       <a class="zcool" target="_blank" href="https://www.behance.net/studiosoya">Behance</a>
       <a class="zcool" target="_blank" href="https://www.zcool.com.cn/u/15601279">Zcool</a>
     </div>
@@ -26,6 +28,44 @@
 
 <script>
 import TopHeader from "./TopHeader.vue";
+const URLS = Object.freeze([
+  'https://www.zcool.com.cn/work/ZNTU0NjI2NjQ=.html',
+  'https://www.zcool.com.cn/work/ZNTUyMjQ2MTI=.html',
+  'https://www.zcool.com.cn/work/ZNTUwODc5MTI=.html',
+  'https://www.zcool.com.cn/work/ZNTQ2NTA0NDA=.html',
+  'https://www.zcool.com.cn/work/ZNTQzMDQ1NjA=.html',
+  'https://www.zcool.com.cn/work/ZNTQwMjAzNjg=.html',
+  'https://www.zcool.com.cn/work/ZNTM3MTk0MDg=.html',
+  'https://www.zcool.com.cn/work/ZNTM1NjMxNjg=.html',
+  'https://www.zcool.com.cn/work/ZNTI2MTE2MDg=.html',
+  'https://www.zcool.com.cn/work/ZNTE3NDY3MzY=.html',
+  'https://www.zcool.com.cn/work/ZNTA1MDI2MjQ=.html',
+  'https://www.zcool.com.cn/work/ZNTAyNDUyMTY=.html',
+  'https://www.zcool.com.cn/work/ZNDk0MTYxMjg=.html',
+  'https://www.zcool.com.cn/work/ZNDg2MTQ4NDQ=.html',
+  'https://www.zcool.com.cn/work/ZNDgyNTcyOTI=.html',
+  'https://www.zcool.com.cn/work/ZNDY2MDQwODg=.html',
+  'https://www.zcool.com.cn/work/ZNDQwNjg4ODQ=.html',
+  'https://www.zcool.com.cn/work/ZNDM3ODc1NzY=.html',
+  'https://www.zcool.com.cn/work/ZNDM2MzU0Mjg=.html',
+  'https://www.zcool.com.cn/work/ZNDM2MzQyNDA=.html',
+  'https://www.zcool.com.cn/work/ZNDMyNDc5Njg=.html',
+  'https://www.zcool.com.cn/work/ZNDA1MTg0Njg=.html',
+  'https://www.zcool.com.cn/work/ZNDAxNTQzMjQ=.html',
+  'https://www.zcool.com.cn/work/ZNDAwOTE0MzY=.html',
+  'https://www.zcool.com.cn/work/ZMzk2MzEyODQ=.html',
+  'https://www.zcool.com.cn/work/ZMzk2MDM1NDg=.html',
+  'https://www.zcool.com.cn/work/ZMzQ4NDY0MjA=.html',
+  'https://www.zcool.com.cn/work/ZMzM1Mjc3NjQ=.html',
+  'https://www.zcool.com.cn/work/ZMzM0OTUyMDQ=.html',
+  'https://www.zcool.com.cn/work/ZMzM0Nzc1NjA=.html',
+  'https://www.zcool.com.cn/work/ZMzIyNzIzMjQ=.html',
+  'https://www.zcool.com.cn/work/ZMzE3MzE1MDA=.html',
+  'https://www.zcool.com.cn/work/ZMzAyODQyMzI=.html',
+  'https://www.zcool.com.cn/work/ZMzAyNzY0NDg=.html',
+]);
+
+
 export default {
   name: 'Works',
   components: {
@@ -40,6 +80,7 @@ export default {
       imagesNameArr:Array,
       gifConfig: [],
       hoverIndex: 0,
+      URLS
     }
   },
   methods:{
@@ -48,6 +89,9 @@ export default {
     },
     onMouseLeave() {
       this.hoverIndex = 0;
+    },
+    onClickWork(url) {
+      window.open(url, '_blank');
     }
   },
   created() {
@@ -56,9 +100,11 @@ export default {
     const result = gifContext.keys().map((item, index) => {
       return {
         card: require('../assets/gif/' + item.slice(2)),
-        hover: require("../assets/images/cover/" + imgContext.keys()[index].slice(2))
+        hover: require("../assets/images/cover/" + imgContext.keys()[index].slice(2)),
+        url: this.URLS[index]
       }
     });
+    console.log(result);
 
     //按照一行3个整理数据
     const gitConfig = [];
@@ -69,7 +115,7 @@ export default {
       gitConfig.push([...arr])
       pos += 3;
     }
-    this.gifConfig = Object.freeze(gitConfig);
+    this.gifConfig = Object.freeze(Object.freeze(gitConfig));
   }
 }
 </script>
@@ -80,7 +126,7 @@ export default {
   .poster {
     background-color: #000000;
     width: 100%;
-    padding-bottom: 40px;
+    padding-bottom: 6%;
     img {
       width: 100%;
     }

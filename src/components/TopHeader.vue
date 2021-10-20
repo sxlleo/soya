@@ -3,12 +3,12 @@
     <div class="content">
       <div class="left">
         <router-link to="home" class="logo">
-          <img class="btn" :src='logoUrl[theme-1]' alt="" @click="onClickLogo">
+          <img class="btn" :src='logoUrl[theme-1]' alt="">
         </router-link>
         <router-link to="works" class="btn">WORKS</router-link>
         <router-link to="about" class="btn">ABOUT</router-link>
       </div>
-      <a class="right btn" href="mailto:sxldongman@163.com">CONTANT US</a>
+      <a class="right btn" href="mailto:yangfan@soyastudio.net">CONTANT US</a>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     data() {
       return {
         logoUrl:[
-          require('../assets/images/contact/logo.png'),
+          require('../assets/images/about/logo.png'),
           require('../assets/images/works/logo.png'),
         ]
       }
@@ -41,16 +41,15 @@ export default {
 }
 .top-header {
   font-family: 'Montserrat';
-  font-weight: bold;
-  width: 100%;
-  background-color: #000;
-  padding:4% 4% 8%;
-  box-sizing: border-box;
-  color: #fff;
-  align-items: center;
   line-height: 200px;
   font-size: 20px;
   font-weight: bold;
+  width: 100%;
+  background-color: #000;
+  padding: 4% 4% 6%;
+  box-sizing: border-box;
+  color: #fff;
+  align-items: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,10 +74,16 @@ export default {
     line-height: 100%;
     cursor: pointer;
     text-decoration:none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .logo{
     width: 120px;
     display: inline-flex;
+    img {
+      width: 100%
+    }
   }
 }
 .style1{

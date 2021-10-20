@@ -7,8 +7,6 @@
 <script>
 export default {
   name: 'App',
-  components: {
-  }
 }
 </script>
 
@@ -26,6 +24,7 @@ html,body{
   margin: 0;
   width: 100%;
   height: 100%;
+  cursor: url('./assets/images/pointer.png'), auto;
 }
 html, body, p {
   margin: 0;

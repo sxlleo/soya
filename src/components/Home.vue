@@ -2,26 +2,28 @@
   <div class="home">
     <div class="content">
       <div class="top">
-        <span>索亚工作室<span>®</span></span>
-        <span>Soya Studio is a creative motion design<br/>agency, based in Shenzhen.</span>
+        <span>索亚工作室<i>®</i></span>
+        <span>
+          SOYA STUDIO IS A CREATIVE MOTION DESIGN <br/>AGENCY, BASED IN SHENZHEN.
+        </span>
       </div>
       <div class="main">
         <div class="logo" >
           <img class="logo-item" :src="imgs.logoS" alt="">
-          <div class="logo-item" @mouseenter="() => {onHover(1)}" @mouseleave="onMouseLeave" @click="goWork">
-            <img :src="imgs.logoO" alt="">
+          <div class="logo-item" @click="goWork">
+            <img class="letter" :src="imgs.logoO" @mouseenter="() => {onHover(1)}" @mouseleave="onMouseLeave" alt="">
             <img :class="['hoverimg', {show: hoverIndex==1}]" :src="imgs.hover1" alt="">
           </div>
           <img class="logo-item" :src="imgs.logoY" alt="">
-          <div class="logo-item" @mouseenter="() => {onHover(2)}" @mouseleave="onMouseLeave" @click="goAbout">
-            <img :src="imgs.logoA" alt="">
+          <div class="logo-item"  @click="goAbout">
+            <img class="letter" :src="imgs.logoA" @mouseenter="() => {onHover(2)}" @mouseleave="onMouseLeave" alt="">
             <img :class="['hoverimg', {show: hoverIndex==2}]" :src="imgs.hover2" alt="">
           </div>
         </div>
         <div class="fish-container">
           <img class="fish" :src="imgs.fish" alt="">
           <div class="eye" ref="eye">
-            <p class="pupil" :style="pupilStyle"></p>
+            <p class="pupil" ref="pupil" :style="pupilStyle"></p>
           </div>
         </div>
         <!-- <img :src="" alt=""> -->
@@ -41,15 +43,15 @@
         </p>
       </div>
     </div>
-    <div class="fotter">Copyright © 2021 SOYA Studio. All rights reserved.</div>
+    <div class="fotter">COPYRIGHT © 2021 SOYA STUDIO. ALL RIGHTS RESERVED.</div>
   </div>
 </template>
 
 <script>
-const logoS  = require('@img/home/logo-s.png');
-const logoO  = require('@img/home/logo-o.png');
-const logoY  = require('@img/home/logo-y.png');
-const logoA  = require('@img/home/logo-a.png');
+const logoS  = require('@img/home/logo-S.png');
+const logoO  = require('@img/home/logo-O.png');
+const logoY  = require('@img/home/logo-Y.png');
+const logoA  = require('@img/home/logo-A.png');
 const fish = require('@img/home/icon-fish.png')
 const hover1  = require('@img/home/icon-hover1.png');
 const hover2  = require('@img/home/icon-hover2.png');
@@ -72,6 +74,8 @@ export default {
       pupilStyle: {
 
       },
+      // 眼球半径
+      pupilRadius: 0,
       eyeStyle: {
         left: 0,
         top: 0
@@ -88,6 +92,7 @@ export default {
         left: rect.left,
         radius: this.$refs.eye.clientWidth / 2,
       };
+      this.pupilRadius = this.$refs.pupil.clientWidth / 2;
     })
   },
   methods: {
@@ -108,10 +113,10 @@ export default {
       const p2 = [this.eyeStyle.left + this.eyeStyle.radius, this.eyeStyle.top + this.eyeStyle.radius];
       let distance = this.distance(p1, p2);
       // 5是瞳孔的半径
-      if(distance <= this.eyeStyle.radius - 5) {
+      if(distance <= this.eyeStyle.radius - this.pupilRadius) {
         this.pupilStyle = {
-          top: `${p1[1] - this.eyeStyle.top - 5}px`,
-          left: `${p1[0] - this.eyeStyle.left - 5}px`
+          top: `${p1[1] - this.eyeStyle.top - this.pupilRadius}px`,
+          left: `${p1[0] - this.eyeStyle.left - this.pupilRadius}px`
         }
       }
       else {
@@ -120,35 +125,35 @@ export default {
         if(tempX == 0 && tempY > 0) {
           this.pupilStyle = {
             top: `${0}px`,
-            left: `${this.eyeStyle.radius - 5}px`
+            left: `${this.eyeStyle.radius - this.pupilRadius}px`
           }
           return;
         }
         if(tempX == 0 && tempY < 0) {
           this.pupilStyle = {
-            top: `${this.eyeStyle.radius * 2 - 10}px`,
-            left: `${this.eyeStyle.radius - 5}px`
+            top: `${this.eyeStyle.radius * 2 - this.pupilRadius * 2}px`,
+            left: `${this.eyeStyle.radius - this.pupilRadius}px`
           }
           return;
         }
         if(tempX > 0 && tempY == 0) {
           this.pupilStyle = {
-            top: `${this.eyeStyle.radius - 5}px`,
+            top: `${this.eyeStyle.radius - this.pupilRadius}px`,
             left: `${0}px`
           }
           return;
         }
         if(tempX < 0 && tempY == 0) {
           this.pupilStyle = {
-            top: `${this.eyeStyle.radius - 5}px`,
-            left: `${this.eyeStyle.radius * 2 - 10}px`
+            top: `${this.eyeStyle.radius - this.pupilRadius}px`,
+            left: `${this.eyeStyle.radius * 2 - this.pupilRadius * 2}px`
           }
           return;
         }
 
         let angle = Math.atan((p2[1] - p1[1]) / (p2[0] - p1[0]));
-        let y = Math.sin(angle) * (this.eyeStyle.radius - 5);
-        let x = Math.cos(angle) * (this.eyeStyle.radius - 5);
+        let y = Math.sin(angle) * (this.eyeStyle.radius - this.pupilRadius);
+        let x = Math.cos(angle) * (this.eyeStyle.radius - this.pupilRadius);
         
         if(tempX > 0 && tempY > 0) {
           // 第二象限
@@ -158,12 +163,12 @@ export default {
         else if(tempX > 0 && tempY < 0) {
           // 第三象限
           x = x * -1
-          y = y * -1
+          y = y * -1  
         }
         
         this.pupilStyle = {
-          top: `${y + this.eyeStyle.radius - 5}px`,
-          left: `${x + this.eyeStyle.radius - 5}px`
+          top: `${y + this.eyeStyle.radius - this.pupilRadius}px`,
+          left: `${x + this.eyeStyle.radius - this.pupilRadius}px`
         }
       }
     },
@@ -196,30 +201,29 @@ export default {
       align-items: center;
       margin-bottom: 88px;
       span:nth-child(1) {
+        display: inline-block;
         position: relative;
+        width: 286px;
         font-size: 36px;
         font-family: Source Han Sans CN;
         font-weight: 500;
         color: #FFFFFF;
-        margin-right: 10px;
         line-height: 36px;
-        span{
+        text-align: left;
+        i{
+          display: inline-block;
+          font-style: normal;
           transform: scale(0.6);
-          transform-origin: right top;
-          position: absolute;
-          right: 0;
-          top: 0;
-          margin: 2px -22px;
+          transform-origin: left top;
         }
       }
       span:nth-child(2) {
         font-size: 16px;
-        font-family: Montserrat;
+        font-family: 'Montserrat';
         font-weight: 500;
         color: #FFFFFF;
         text-align: left;
         line-height: 16px;
-        margin-left: 94px;
       }
     }
     .main {
@@ -235,9 +239,12 @@ export default {
           display: inline-block;
           width: 102px;
           height: 136px;
+          .letter {
+            width: 100%;
+          }
           .show {
             opacity: 1 !important;
-            transform: translate(-50%, -50%) scale(1) rotate(20deg) !important;
+            transform: translate(-50%, -50%) scale(1) rotate(0) !important;
           }
           .hoverimg{
             position: absolute;
@@ -245,8 +252,10 @@ export default {
             top: 50%;
             left: 50%;
             opacity: 0;
-            transition: 200ms ease-in-out;
-            transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+            transition: 250ms ease-in-out;
+            transform: translate(-50%, -50%) scale(0.9) rotate(-180deg);
+            width: 227px;
+            pointer-events: none;
           }
         }
       }
@@ -255,6 +264,9 @@ export default {
         position: relative;
         width: 215px;
         height: 163px;
+        .fish {
+          width: 100%;
+        }
         .eye{
           width: 32px;
           height: 32px;
@@ -266,8 +278,8 @@ export default {
           .pupil{
             position: absolute;
             background-color: #000;
-            width: 10px;
-            height: 10px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
           }
         }
@@ -275,6 +287,7 @@ export default {
     }
   }
   .bottom{
+    font-family: 'Montserrat';
     display: flex;
     font-size: 16px;
     font-weight: 500;
@@ -286,6 +299,12 @@ export default {
       span{
         display: block;
       }
+    }
+    .desp:nth-child(1) {
+      min-width: 286px;
+    }
+    .desp:nth-child(2) {
+      min-width: 367px;
     }
   }
   .fotter {

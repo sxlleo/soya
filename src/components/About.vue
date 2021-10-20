@@ -5,16 +5,13 @@
       <div class="text">
         <p class="title">SOYA STUDIO</p>
         <p class="desp">索亚工作室® 2018年成立于深圳，是以动态产品广告为核心业务的创意设计机构。<br/><br/>
-
-索亚为客户提供产品广告、动态设计、三维设计、创意效果图等数字影像创意服务及技术支持。在过去的几年间，为全国众多企业制作了高效且精准的产品广告，并成为数码3C行业内备受认可的广告视频创作品牌。</p>
+          索亚为客户提供产品广告、动态设计、三维设计、创意效果图等数字影像创意服务及技术支持。在过去的几年间，为全国众多企业制作了高效且精准的产品广告，并成为数码3C行业内备受认可的广告视频创作品牌。</p>
       </div>
       <div class="text">
         <p class="title">FOUNDERS</p>
         <p class="desp">杨帆，在工业设计领域具有丰富的产品设计经验，对产品有独到见解，深谙用户喜好；其出色的视频创意及独特的设计风格屡获行业认可。<br/><br/>
-
-陈明，具有出色的设计思维及画面表现力，尤擅长处理复杂场景，镜头运用大胆创新。<br/><br/>
-
-余刘维，擅长数字三维动画及后期包装，品牌项目经验丰富，能快速切中产品宣传要点，同时具备优秀的项目管理能力，负责把控进度 。</p>
+          陈明，具有出色的设计思维及画面表现力，尤擅长处理复杂场景，镜头运用大胆创新。<br/><br/>
+          余刘维，擅长数字三维动画及后期包装，品牌项目经验丰富，能快速切中产品宣传要点，同时具备优秀的项目管理能力，负责把控进度 。</p>
       </div>
       <div class="text infotext">
         <p class="title">INFORMATION</p>
@@ -36,9 +33,9 @@
             </p>
           </div>
         </div>
-        <img class="image" src="../assets/images/contact/QRcode.png" alt="">
+        <img class="QRcode" src="../assets/images/about/QRcode.png" alt="">
       </div>
-      <img src="../assets/images/contact/footer.png" alt="" class="footer">
+      <img src="../assets/images/about/other-logos.png" alt="" class="footer">
     </div>
   </div>
 </template>
@@ -46,7 +43,7 @@
 <script>
 import TopHeader from "./TopHeader.vue";
 export default {
-  name: "Contact",
+  name: "About",
   components:{
     TopHeader
   }
@@ -54,17 +51,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 .continar{
   color: #000;
   margin: 50px 19% 146px;
+  font-family: Helvetica;
   font-weight: bold;
   font-size: 20px;
-  font-family: Helvetica;
 }
 .footer{
   width: 100%;
-  margin:40px 0 146px;
+  margin:40px 0 14%;
 }
 .text{
   display: flex;
@@ -72,6 +68,7 @@ export default {
   margin-bottom: 45px;
   .title{
     font-family: 'Montserrat';
+    font-weight: 500;
     min-width: 290px;
     width: 290px;
     text-align: left;
@@ -87,6 +84,7 @@ export default {
   .infodesp{
     display: flex;
     flex-wrap: wrap;
+    max-width: 596px;
     // width: 550px;
     .en {
       font-family: 'Montserrat';
@@ -113,9 +111,10 @@ export default {
       justify-content: space-between;
     }
   }
-  .image{
+  .QRcode{
     float: right;
     width: 200px;
+    margin-left: 20px;
   }
 }
 </style>
