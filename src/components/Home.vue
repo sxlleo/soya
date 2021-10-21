@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { debounce } from 'lodash';
 const logoS  = require('@img/home/logo-S.png');
 const logoO  = require('@img/home/logo-O.png');
 const logoY  = require('@img/home/logo-Y.png');
@@ -85,17 +86,21 @@ export default {
   },
   mounted() {
     document.addEventListener('mousemove', this.onMouseMove);
+    window.addEventListener('resize', debounce(this.updateEyeStyle, 200));
     setTimeout(() => {
+      this.updateEyeStyle();
+      this.pupilRadius = this.$refs.pupil.clientWidth / 2;
+    })
+  },
+  methods: {
+    updateEyeStyle() {
       const rect = this.$refs.eye.getBoundingClientRect();
       this.eyeStyle = {
         top: rect.top,
         left: rect.left,
         radius: this.$refs.eye.clientWidth / 2,
       };
-      this.pupilRadius = this.$refs.pupil.clientWidth / 2;
-    })
-  },
-  methods: {
+    },
     onHover(index) {
       this.hoverIndex = index;
     },
@@ -112,7 +117,7 @@ export default {
       const p1 = [evt.clientX, evt.clientY];
       const p2 = [this.eyeStyle.left + this.eyeStyle.radius, this.eyeStyle.top + this.eyeStyle.radius];
       let distance = this.distance(p1, p2);
-      // 5是瞳孔的半径
+      // pupilRadius是瞳孔的半径
       if(distance <= this.eyeStyle.radius - this.pupilRadius) {
         this.pupilStyle = {
           top: `${p1[1] - this.eyeStyle.top - this.pupilRadius}px`,
@@ -124,7 +129,7 @@ export default {
         let tempY = p2[1] - p1[1];
         if(tempX == 0 && tempY > 0) {
           this.pupilStyle = {
-            top: `${0}px`,
+            top: 0,
             left: `${this.eyeStyle.radius - this.pupilRadius}px`
           }
           return;
@@ -139,7 +144,7 @@ export default {
         if(tempX > 0 && tempY == 0) {
           this.pupilStyle = {
             top: `${this.eyeStyle.radius - this.pupilRadius}px`,
-            left: `${0}px`
+            left: 0
           }
           return;
         }
@@ -155,15 +160,10 @@ export default {
         let y = Math.sin(angle) * (this.eyeStyle.radius - this.pupilRadius);
         let x = Math.cos(angle) * (this.eyeStyle.radius - this.pupilRadius);
         
-        if(tempX > 0 && tempY > 0) {
-          // 第二象限
+        if((tempX > 0 && tempY > 0) || (tempX > 0 && tempY < 0)) {
+          // 第二象限 或 第三象限
           x = x * -1
           y = y * -1
-        }
-        else if(tempX > 0 && tempY < 0) {
-          // 第三象限
-          x = x * -1
-          y = y * -1  
         }
         
         this.pupilStyle = {
@@ -223,14 +223,15 @@ export default {
         font-weight: 500;
         color: #FFFFFF;
         text-align: left;
-        line-height: 16px;
       }
     }
     .main {
       display: flex;
       align-items: center;
       .logo{
+        display: inline-flex;
         margin-right: 42px;
+        white-space: nowrap;
         .logo-item:not(:nth-last-child(1)) {
           margin-right: 32px;
         }

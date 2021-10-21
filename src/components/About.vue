@@ -69,8 +69,8 @@ export default {
   .title{
     font-family: 'Montserrat';
     font-weight: 500;
-    min-width: 290px;
-    width: 290px;
+    min-width: 24%;
+    width: 24%;
     text-align: left;
     vertical-align: top;
   }

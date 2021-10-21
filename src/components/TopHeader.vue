@@ -1,14 +1,19 @@
 <template>
   <div :class="['top-header', `style${theme}`]">
     <div class="content">
-      <div class="left">
-        <router-link to="home" class="logo">
+      <div class="logo">
+        <router-link to="home">
           <img class="btn" :src='logoUrl[theme-1]' alt="">
         </router-link>
-        <router-link to="works" class="btn">WORKS</router-link>
-        <router-link to="about" class="btn">ABOUT</router-link>
       </div>
-      <a class="right btn" href="mailto:yangfan@soyastudio.net">CONTANT US</a>
+      <p class="works"><router-link to="works" class="btn">WORKS</router-link></p>
+      <p class="about"><router-link to="about" class="btn">ABOUT</router-link></p>
+      <a class="contant btn" href="mailto:yangfan@soyastudio.net">CONTANT US</a>
+      <!-- <div class="link-container">
+        <p class="work-container"><router-link to="works" class="btn">WORKS</router-link></p>
+        <p class="about-container"><router-link to="about" class="btn">ABOUT</router-link></p>
+        <a class="contant btn" href="mailto:yangfan@soyastudio.net">CONTANT US</a>
+      </div> -->
     </div>
   </div>
 </template>
@@ -44,9 +49,8 @@ export default {
   line-height: 200px;
   font-size: 20px;
   font-weight: bold;
-  width: 100%;
   background-color: #000;
-  padding: 4% 4% 6%;
+  padding: 4% 0 6%;
   box-sizing: border-box;
   color: #fff;
   align-items: center;
@@ -55,47 +59,72 @@ export default {
   justify-content: center;
   .content {
     width: 100%;
+    // justify-content: space-between;
+    justify-content: flex-start;
+    // margin: 0 4%;
     .flex();
-    justify-content: space-between;
+    .btn {
+      line-height: 100%;
+      cursor: pointer;
+      text-decoration:none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .logo{
+      width: 15%;
+      min-width: 15%;
+      margin-left: 4%;
+      &, & > * {
+        display: inline-flex;
+      }
+      img {
+        width: 120px;
+      }
+    }
+    .works, .about {
+      display: inline-flex;
+      width: 15.1%;
+    }
+    .contant {
+      position: absolute;
+      right: 4.9%;
+    }
+    // .link-container {
+    //   // display: flex;
+    //   // justify-content: space-between;
+    //   display: inline-flex;
+    //   width: 100%;
+    //   .work-container {
+    //     width: 18.9%;
+    //   }
+    //   p {
+    //     display: inline-flex;
+    //   }
+    //   .contant {
+    //     position: absolute;
+    //     right: 4.8%;
+    //     text-decoration: none;
+    //     white-space: nowrap;
+    //     margin: 0 !important;
+    //     // text-align: right;
+    //   }
+    // }
   }
   .left {
     width: 40%;
     justify-content: space-between;
     .flex();
   }
-  .right {
-     text-decoration:none;
-     white-space: nowrap;
-     margin: 0 !important;
-     text-align: right;
-  }
-  .btn{
-    color: white;
-    line-height: 100%;
-    cursor: pointer;
-    text-decoration:none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .logo{
-    width: 120px;
-    display: inline-flex;
-    img {
-      width: 100%
-    }
-  }
 }
-.style1{
+.style1 {
   background-color: #fff;
-  color: #000;
   .btn{
     color: #000;
   }
 }
 .style2{
   background-color: #000;
-  color: #fff;
   .btn{
     color: #fff;
   }

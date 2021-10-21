@@ -6,7 +6,7 @@
     </div>
     <div class="imgs">
       <div class="row" v-for="(gifArr, index) in gifConfig" :key="index">
-        <div class="img"
+        <div class="work-item"
           v-for="(gif, gifIndex) in gifArr"
           :key="`gif${gifIndex}`"
           @mouseenter="() => {onHover(`${index}/${gifIndex}`)}" 
@@ -20,8 +20,10 @@
     </div>
     <div class="footer">
       <p>COPYRIGHT © 2021 SOYA STUDIO. ALL RIGHTS RESERVED.</p>
-      <a class="zcool" target="_blank" href="https://www.behance.net/studiosoya">Behance</a>
-      <a class="zcool" target="_blank" href="https://www.zcool.com.cn/u/15601279">Zcool</a>
+      <div class="right">
+        <a target="_blank" href="https://www.zcool.com.cn/u/15601279">Zcool</a>
+        <a target="_blank" href="https://www.behance.net/studiosoya">Behance</a>
+      </div>
     </div>
   </div>
 </template>
@@ -137,15 +139,15 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 6% 4% 4%;
-    // width: 90%;
     .row {
       display: flex;
       justify-content: space-between;
       padding-bottom: 3%;
       width: 100%;
-      .img {
+      .work-item {
         position: relative;
         width: 32.5%;
+        cursor: pointer;
         .hover {
           position: absolute;
           top: 0;
@@ -167,19 +169,27 @@ export default {
     text-align: left;
     margin: 0 4% 4%;
     font-size: 20px;
+    display: flex;
+    justify-content: space-between;
     p{
       display: inline-block;
     }
-    .zcool{
-      width: 120px;
-      margin-right: 25px;
-      float: right;
-      text-decoration: none;
-      color: black;
+    .right {
+      width: 32.5%;
+      a{
+        width: 120px;
+        margin-right: 25px;
+        text-decoration: none;
+        color: black;
+        &:nth-child(1) {
+          margin-right: 16%;
+        }
+      }
+      a:hover,a:visited{
+        text-decoration: revert;
+      }
     }
-    a:hover,a:visited{
-      text-decoration: revert;
-    }
+    
   }
   overflow: hidden;
 }
