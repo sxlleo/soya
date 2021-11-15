@@ -43,87 +43,87 @@ import TopHeader from "../components/TopHeader.vue";
 import Footer from '../components/Footer.vue';
 const OTHER_INFO = Object.freeze([
   {
-    title: "小米® MIX4 - 动态数字影像",
+    title: "小米® MIX4 动态数字影像",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTU0NjI2NjQ=.html"
   },
   {
-    title: "加州提前来电？- iPhone 13 Ad 自制创意视频",
+    title: "iPhone 13 Ad 自制创意短片",
     des: "PRODUCT ANIMATION & CREATIVE VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTUyMjQ2MTI=.html"
   },
   {
-    title: "由你，对话未见的世界 - vivo® 校招主视觉",
+    title: "vivo® 2022 校招主视觉",
     des: "KEY VISUAL & CREATIVE VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTUwODc5MTI=.html"
   },
   {
-    title: "西装狂魔 - 红魔游戏手机6R广告短片",
+    title: "Nubia® 红魔游戏手机6R短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTQ2NTA0NDA=.html"
   },
   {
-    title: "2021小米® 春季新品 - 数字影像支持",
+    title: "2021 小米® 春季新品数字影像",
     des: "PRODUCT ANIMATION & RENDERTING",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTQzMDQ1NjA=.html"
   },
   {
-    title: "光的冶炼 - JMGO® 投影仪创意开机动画",
+    title: "JMGO® 投影仪创意开机动画",
     des: "CREATIVE VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTQwMjAzNjg=.html"
   },
   {
-    title: "悦享纯静 - ZMI PurPods Pro 真无线降噪耳机",
+    title: "ZMI® PurPods Pro 真无线降噪耳机短片",
     des: "PRODUCT VIDEO & CHARACTER ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTM3MTk0MDg=.html"
   },
   {
-    title: "慧眼摘星 - Nubia® Z30 Pro 广告短片",
+    title: "Nubia® Z30 Pro 广告短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTM1NjMxNjg=.html"
   },
   {
-    title: "近入想象 - JMGO® O1 坚果智慧墙广告短片",
+    title: "JMGO® O1 坚果智慧墙短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTI2MTE2MDg=.html"
   },
   {
-    title: "战无不声 - 黑鲨® 蓝牙游戏耳机2宣传短片",
+    title: "BLACKSHARK® 蓝牙游戏耳机2短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTE3NDY3MzY=.html"
   },
   {
-    title: "四季有风趣 - Lofree 洛斐® 桌面风扇创意短片",
+    title: "Lofree® 桌面风扇创意短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTA1MDI2MjQ=.html"
   },
   {
-    title: "给你一点新鲜感 - Leader® iCase 智能冰箱创意短片",
+    title: "Leader® iCase 智能冰箱创意短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTAyNDUyMTY=.html"
   },
   {
-    title: "我回零零年代 - 怀旧风格创意短片",
+    title: "我回零零年代 - 怀旧创意短片",
     des: "CREATIVE VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDk0MTYxMjg=.html"
   },
   {
-    title: "BULL 公牛® 电竞开黑移动电源产品宣传短片",
+    title: "BULL® 公牛电竞移动电源短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDg2MTQ4NDQ=.html"
   },
   {
-    title: "居骑士® S1 Pro 声波电动牙刷宣传短片",
+    title: "居骑士® S1 Pro 声波电动牙刷短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDgyNTcyOTI=.html"
   },
   {
-    title: "Nubia 努比亚® 红魔 5S 手机及智能生态新品",
+    title: "Nubia® 红魔 5S 手机及智能生态新品",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDY2MDQwODg=.html"
   },
   {
-    title: "AUKEY 傲基® WEAR BUDS 智能运动手环宣传短片",
+    title: "AUKEY® WEAR BUDS 智能手环短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDQwNjg4ODQ=.html"
   },
@@ -133,47 +133,47 @@ const OTHER_INFO = Object.freeze([
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDM3ODc1NzY=.html"
   },
   {
-    title: "C60工业设计公司展会宣传短片",
+    title: "C60® 工业设计公司展会宣传短片",
     des: "PROMOTIONAL VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDM2MzU0Mjg=.html"
   },
   {
-    title: "ZMI 紫米® 蓝牙闹钟音箱产品宣传短片",
+    title: "ZMI® 紫米蓝牙闹钟音箱短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDM2MzQyNDA=.html"
   },
   {
-    title: "COOLPAD 酷派® 26周年臻藏版手机风格渲染",
+    title: "COOLPAD® 酷派26周年臻藏版手机渲染",
     des: "RENDERING",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDMyNDc5Njg=.html"
   },
   {
-    title: "ZMI 紫米® 米家生态链展会产品宣传短片",
+    title: "ZMI® 米家生态链展会产品宣传短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDA1MTg0Njg=.html"
   },
   {
-    title: "ZMI 紫米® 移动电源产品宣传短片",
+    title: "ZMI® 移动电源短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDAxNTQzMjQ=.html"
   },
   {
-    title: "JMGO 坚果® T9 便携投影仪产品宣传短片",
+    title: "JMGO® T9 便携投影仪短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDAwOTE0MzY=.html"
   },
   {
-    title: "CIGA 玺佳® 全透明机械表产品宣传短片",
+    title: "CIGA® 玺佳全透明机械表短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzk2MzEyODQ=.html"
   },
   {
-    title: "ZOMO® & Logitech® 定制键帽产品宣传短片",
+    title: "ZOMO® & Logitech® 定制键帽短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzk2MDM1NDg=.html"
   },
   {
-    title: "EDIFIER 漫步者® HECATE 耳机产品宣传短片",
+    title: "EDIFIER® 漫步者 HECATE 耳机短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzQ4NDY0MjA=.html"
   },
@@ -183,32 +183,32 @@ const OTHER_INFO = Object.freeze([
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzM1Mjc3NjQ=.html"
   },
   {
-    title: "Happy Dino 小龙哈彼® 三款婴童产品宣传短片",
+    title: "Happy Dino® 小龙哈彼婴童产品短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzM0OTUyMDQ=.html"
   },
   {
-    title: "聚宝硬币罐 - 创意风格短片",
+    title: "聚宝硬币罐 - 创意短片",
     des: "CREATIVE VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzM0Nzc1NjA=.html"
   },
   {
-    title: "娇棠® 超声波导入仪产品宣传短片",
+    title: "娇棠® 超声波导入仪短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzIyNzIzMjQ=.html"
   },
   {
-    title: "JMGO 坚果® U1 投影仪产品宣传短片",
+    title: "JMGO® U1 投影仪短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzE3MzE1MDA=.html"
   },
   {
-    title: "ZOMO® 全金属键帽产品宣传短片",
+    title: "ZOMO® 全金属键帽短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzAyODQyMzI=.html"
   },
   {
-    title: "JMGO 坚果® W700 投影仪产品宣传动画",
+    title: "JMGO® W700 投影仪短片",
     des: "PRODUCT ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzAyNzY0NDg=.html"
   }
