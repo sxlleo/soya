@@ -10,24 +10,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
   text-align: center;
   color: #2c3e50;
   width: 100%;
   height: 100%;
-}
-html,body{
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: url('./assets/images/pointer.png'), auto;
-}
-html, body, p {
-  margin: 0;
-  padding: 0;
 }
 </style>
