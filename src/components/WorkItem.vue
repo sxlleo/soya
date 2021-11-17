@@ -10,10 +10,9 @@
       <div v-if="!loadResult" :style="{'margin-top': `${100 * 655 / 1166}%`}"></div>
       <img v-show="loadResult" :src="gif.card" alt lazyload="on" @load="onLoad"/>
       <img
-        v-if="hoverIndex == `${rowIndex}/${gifIndex}`"
-        :class="['hover', {show: hoverIndex == `${rowIndex}/${gifIndex}`}]"
+        v-if="isHover || isLoadHoverImg"
+        :class="['hover', {show: playAnim}]"
         :src="gif.hover"
-        alt
       />
     </div>
     <p class="title">{{gif.title}}</p>
@@ -44,7 +43,9 @@ export default {
   },
   data() {
     return {
-      loadResult: false
+      loadResult: false,
+      isHover: false,
+      playAnim: false
     }
   },
   methods: {
@@ -55,10 +56,16 @@ export default {
       window.open(url, "_blank");
     },
     onMouseenter() {
-      this.$emit("mouseenter")
+      this.isHover = true;
+      this.isLoadHoverImg = true;
+      
+      setTimeout(() => {
+        this.playAnim = true;
+      }, 0);
     },
     onMouseleave() {
-      this.$emit("mouseleave")
+      this.isHover = false;
+      this.playAnim = false;
     }
   }
 }
@@ -76,8 +83,11 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 1;
-    transition: 200ms ease-out;
+    opacity: 0;
+    transition: 500ms ease-out;
+    &.show {
+      opacity: 1;
+    }
   }
   p {
     text-align: left;

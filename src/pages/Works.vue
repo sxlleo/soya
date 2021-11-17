@@ -9,17 +9,13 @@
         <template v-for="(gif, gifIndex) in gifArr">
           <WorkItem :gif="gif" 
             :gifIndex="gifIndex" 
-            :hoverIndex="hoverIndex"
             :rowIndex="index" 
             :key="`gif${gifIndex}`" 
-            @mouseenter="() => {onHover(`${index}/${gifIndex}`)}"
-            @mouseleave="onMouseLeave"
           ></WorkItem>
         </template>
       </div>
     </div>
     <div class="footer">
-      <!-- <p>COPYRIGHT © 2021 SOYA STUDIO. ALL RIGHTS RESERVED.</p> -->
       <Footer class="miit"></Footer>
       <div class="right">
         <a target="_blank" href="https://www.zcool.com.cn/u/15601279">Zcool</a>
@@ -221,18 +217,11 @@ export default {
       imgCount: Number,
       imagesNameArr: Array,
       gifConfig: [],
-      hoverIndex: "",
       itemHeight: 0,
       OTHER_INFO
     };
   },
   methods: {
-    onHover(index) {
-      this.hoverIndex = index;
-    },
-    onMouseLeave() {
-      this.hoverIndex = "";
-    },
     onClickWork(url) {
       window.open(url, "_blank");
     }
