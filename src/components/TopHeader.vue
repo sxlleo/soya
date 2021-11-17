@@ -50,18 +50,23 @@ export default {
   font-size: 20px;
   font-weight: bold;
   background-color: #000;
-  padding: 4% 0 6%;
+  padding: 4% 0 3%;
   box-sizing: border-box;
   color: #fff;
   align-items: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid;
+  &.style1 {
+    border-bottom-color: #000;
+  }
+  &.style2 {
+    border-bottom-color: #fff;
+  }
   .content {
     width: 100%;
-    // justify-content: space-between;
     justify-content: flex-start;
-    // margin: 0 4%;
     .flex();
     .btn {
       line-height: 100%;

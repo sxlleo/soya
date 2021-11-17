@@ -121,8 +121,8 @@ export default {
     margin:40px 0 14%;
   }
   .miit {
-    // color: black;
     margin-bottom: 75px;
+    text-align: left;
   }
 }
 </style>

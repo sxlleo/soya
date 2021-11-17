@@ -2,29 +2,20 @@
   <div class="works">
     <TopHeader :theme="2"></TopHeader>
     <div class="poster">
-      <video src="../assets/media/show.mp4" loop='true' autoplay></video>
+      <video src="../assets/media/show.mp4" muted autoplay loop="true"></video>
     </div>
     <div class="imgs">
       <div class="row" v-for="(gifArr, index) in gifConfig" :key="index">
-        <div
-          class="work-item"
-          v-for="(gif, gifIndex) in gifArr"
-          :key="`gif${gifIndex}`"
-          @mouseenter="() => {onHover(`${index}/${gifIndex}`)}"
-          @mouseleave="onMouseLeave"
-          @click="() => {onClickWork(gif.zcoolUrl)}"
-        >
-          <div>
-            <img :src="gif.card" alt />
-            <img
-              :class="['hover', {show: hoverIndex == `${index}/${gifIndex}`}]"
-              :src="gif.hover"
-              alt
-            />
-          </div>
-          <p class="title">{{gif.title}}</p>
-          <p class="des">{{gif.des}}</p>
-        </div>
+        <template v-for="(gif, gifIndex) in gifArr">
+          <WorkItem :gif="gif" 
+            :gifIndex="gifIndex" 
+            :hoverIndex="hoverIndex"
+            :rowIndex="index" 
+            :key="`gif${gifIndex}`" 
+            @mouseenter="() => {onHover(`${index}/${gifIndex}`)}"
+            @mouseleave="onMouseLeave"
+          ></WorkItem>
+        </template>
       </div>
     </div>
     <div class="footer">
@@ -41,6 +32,7 @@
 <script>
 import TopHeader from "../components/TopHeader.vue";
 import Footer from '../components/Footer.vue';
+import WorkItem from '../components/WorkItem.vue';
 const OTHER_INFO = Object.freeze([
   {
     title: "小米® MIX4 动态数字影像",
@@ -73,7 +65,7 @@ const OTHER_INFO = Object.freeze([
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTQwMjAzNjg=.html"
   },
   {
-    title: "ZMI® PurPods Pro 真无线降噪耳机短片",
+    title: "ZMI® PurPods Pro 耳机短片",
     des: "PRODUCT VIDEO & CHARACTER ANIMATION",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNTM3MTk0MDg=.html"
   },
@@ -143,7 +135,7 @@ const OTHER_INFO = Object.freeze([
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDM2MzQyNDA=.html"
   },
   {
-    title: "COOLPAD® 酷派26周年臻藏版手机渲染",
+    title: "COOLPAD® 26周年臻藏手机渲染",
     des: "RENDERING",
     zcoolUrl: "https://www.zcool.com.cn/work/ZNDMyNDc5Njg=.html"
   },
@@ -178,7 +170,7 @@ const OTHER_INFO = Object.freeze([
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzQ4NDY0MjA=.html"
   },
   {
-    title: "SOYA STUDIO® 2018 动态设计案例汇总",
+    title: "SOYA STUDIO® 2018 案例汇总",
     des: "PRODUCT ANIMATION & CREATIVE VIDEO",
     zcoolUrl: "https://www.zcool.com.cn/work/ZMzM1Mjc3NjQ=.html"
   },
@@ -218,7 +210,8 @@ export default {
   name: "Works",
   components: {
     TopHeader,
-    Footer
+    Footer,
+    WorkItem
   },
   props: {
     msg: String
@@ -228,7 +221,8 @@ export default {
       imgCount: Number,
       imagesNameArr: Array,
       gifConfig: [],
-      hoverIndex: 0,
+      hoverIndex: "",
+      itemHeight: 0,
       OTHER_INFO
     };
   },
@@ -237,7 +231,7 @@ export default {
       this.hoverIndex = index;
     },
     onMouseLeave() {
-      this.hoverIndex = 0;
+      this.hoverIndex = "";
     },
     onClickWork(url) {
       window.open(url, "_blank");
@@ -266,7 +260,7 @@ export default {
       pos += 3;
     }
     this.gifConfig = Object.freeze(Object.freeze(gitConfig));
-  }
+  },
 };
 </script>
 
@@ -281,9 +275,6 @@ export default {
     video {
       width: 100%;
     }
-    // img {
-    //   width: 100%;
-    // }
   }
   .imgs {
     display: flex;
@@ -296,41 +287,8 @@ export default {
       justify-content: space-between;
       padding-bottom: 3%;
       width: 100%;
-      .work-item {
-        position: relative;
-        width: 32.5%;
-        cursor: pointer;
-        .hover {
-          position: absolute;
-          top: 0;
-          left: 0;
-          opacity: 0;
-          transition: 200ms ease-out;
-          &.show {
-            opacity: 1;
-          }
-        }
-        p {
-          text-align: left;
-        }
-        .title {
-          font-size: 20px;
-          font-family: Source Han Sans CN;
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-        .des {
-          font-size: 14px;
-          font-family: "Montserrat";
-          font-weight: 500;
-          line-height: 0px;
-          color: #9b9b9b;
-        }
-      }
     }
-    img {
-      width: 100%;
-    }
+    
   }
   .footer {
     font-family: "Montserrat";
