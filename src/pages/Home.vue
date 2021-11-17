@@ -314,14 +314,12 @@ export default {
   }
   .footer {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 76px;
+    transform: translateX(-15px);
     font-size: 16px;
     font-family: Montserrat;
     font-weight: 500;
     color: #D3D3D3;
-    margin-bottom: 76px;
   }
 }
 </style>
