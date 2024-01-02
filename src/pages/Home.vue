@@ -3,30 +3,27 @@
     <div class="content">
       <div class="top">
         <span>索亚工作室<i>®</i></span>
-        <span>
-          SOYA STUDIO IS A CREATIVE MOTION DESIGN <br/>AGENCY, BASED IN SHENZHEN.
-        </span>
+        <span> SOYA STUDIO IS A CREATIVE MOTION DESIGN <br />AGENCY, BASED IN SHENZHEN. </span>
       </div>
       <div class="main">
-        <div class="logo" >
-          <img class="logo-item" :src="imgs.logoS" alt="">
+        <div class="logo">
+          <img class="logo-item" :src="imgs.logoS" alt="" />
           <div class="logo-item" @click="goWork">
-            <img class="letter" :src="imgs.logoO" @mouseenter="() => {onHover(1)}" @mouseleave="onMouseLeave" alt="">
-            <img :class="['hoverimg', {show: hoverIndex==1}]" :src="imgs.hover1" alt="">
+            <img class="letter" :src="imgs.logoO" @mouseenter="onHover(1)" @mouseleave="onMouseLeave" alt="" />
+            <img :class="['hoverimg', { show: hoverIndex == 1 }]" :src="imgs.hover1" alt="" />
           </div>
-          <img class="logo-item" :src="imgs.logoY" alt="">
-          <div class="logo-item"  @click="goAbout">
-            <img class="letter" :src="imgs.logoA" @mouseenter="() => {onHover(2)}" @mouseleave="onMouseLeave" alt="">
-            <img :class="['hoverimg', {show: hoverIndex==2}]" :src="imgs.hover2" alt="">
+          <img class="logo-item" :src="imgs.logoY" alt="" />
+          <div class="logo-item" @click="goAbout">
+            <img class="letter" :src="imgs.logoA" @mouseenter="onHover(2)" @mouseleave="onMouseLeave" alt="" />
+            <img :class="['hoverimg', { show: hoverIndex == 2 }]" :src="imgs.hover2" alt="" />
           </div>
         </div>
         <div class="fish-container">
-          <img class="fish" :src="imgs.fish" alt="">
+          <img class="fish" :src="imgs.fish" alt="" />
           <div class="eye" ref="eye">
             <p class="pupil" ref="pupil" :style="pupilStyle"></p>
           </div>
         </div>
-        <!-- <img :src="" alt=""> -->
       </div>
       <div class="bottom">
         <p class="desp">
@@ -48,15 +45,15 @@
 </template>
 
 <script>
-import Footer from '../components/Footer.vue';
-import { debounce } from 'lodash';
-const logoS  = require('@img/home/logo-S.png');
-const logoO  = require('@img/home/logo-O.png');
-const logoY  = require('@img/home/logo-Y.png');
-const logoA  = require('@img/home/logo-A.png');
+import Footer from '../components/Footer'
+import { debounce } from 'lodash'
+const logoS = require('@img/home/logo-S.png')
+const logoO = require('@img/home/logo-O.png')
+const logoY = require('@img/home/logo-Y.png')
+const logoA = require('@img/home/logo-A.png')
 const fish = require('@img/home/icon-fish.png')
-const hover1  = require('@img/home/icon-hover1.png');
-const hover2  = require('@img/home/icon-hover2.png');
+const hover1 = require('@img/home/icon-hover1.png')
+const hover2 = require('@img/home/icon-hover2.png')
 export default {
   name: 'Home',
   components: {
@@ -76,9 +73,7 @@ export default {
         hover1,
         hover2
       },
-      pupilStyle: {
-
-      },
+      pupilStyle: {},
       // 眼球半径
       pupilRadius: 0,
       eyeStyle: {
@@ -89,101 +84,100 @@ export default {
     }
   },
   mounted() {
-    document.addEventListener('mousemove', this.onMouseMove);
-    window.addEventListener('resize', debounce(this.updateEyeStyle, 200));
+    document.addEventListener('mousemove', this.onMouseMove)
+    window.addEventListener('resize', debounce(this.updateEyeStyle, 200))
     setTimeout(() => {
-      this.updateEyeStyle();
-      this.pupilRadius = this.$refs.pupil.clientWidth / 2;
+      this.updateEyeStyle()
+      this.pupilRadius = this.$refs.pupil.clientWidth / 2
     })
   },
   methods: {
     updateEyeStyle() {
-      const rect = this.$refs.eye.getBoundingClientRect();
+      const rect = this.$refs.eye.getBoundingClientRect()
       this.eyeStyle = {
         top: rect.top,
         left: rect.left,
-        radius: this.$refs.eye.clientWidth / 2,
-      };
+        radius: this.$refs.eye.clientWidth / 2
+      }
     },
     onHover(index) {
-      this.hoverIndex = index;
+      this.hoverIndex = index
     },
     onMouseLeave() {
-      this.hoverIndex = 0;
+      this.hoverIndex = 0
     },
-    goWork(){
+    goWork() {
       this.$router.push('works')
     },
     goAbout() {
       this.$router.push('about')
-    }, 
+    },
     onMouseMove(evt) {
-      const p1 = [evt.clientX, evt.clientY];
-      const p2 = [this.eyeStyle.left + this.eyeStyle.radius, this.eyeStyle.top + this.eyeStyle.radius];
-      let distance = this.distance(p1, p2);
+      const p1 = [evt.clientX, evt.clientY]
+      const p2 = [this.eyeStyle.left + this.eyeStyle.radius, this.eyeStyle.top + this.eyeStyle.radius]
+      let distance = this.distance(p1, p2)
       // pupilRadius是瞳孔的半径
-      if(distance <= this.eyeStyle.radius - this.pupilRadius) {
+      if (distance <= this.eyeStyle.radius - this.pupilRadius) {
         this.pupilStyle = {
           top: `${p1[1] - this.eyeStyle.top - this.pupilRadius}px`,
           left: `${p1[0] - this.eyeStyle.left - this.pupilRadius}px`
         }
-      }
-      else {
-        let tempX = p2[0] - p1[0];
-        let tempY = p2[1] - p1[1];
-        if(tempX == 0 && tempY > 0) {
+      } else {
+        let tempX = p2[0] - p1[0]
+        let tempY = p2[1] - p1[1]
+        if (tempX == 0 && tempY > 0) {
           this.pupilStyle = {
             top: 0,
             left: `${this.eyeStyle.radius - this.pupilRadius}px`
           }
-          return;
+          return
         }
-        if(tempX == 0 && tempY < 0) {
+        if (tempX == 0 && tempY < 0) {
           this.pupilStyle = {
             top: `${this.eyeStyle.radius * 2 - this.pupilRadius * 2}px`,
             left: `${this.eyeStyle.radius - this.pupilRadius}px`
           }
-          return;
+          return
         }
-        if(tempX > 0 && tempY == 0) {
+        if (tempX > 0 && tempY == 0) {
           this.pupilStyle = {
             top: `${this.eyeStyle.radius - this.pupilRadius}px`,
             left: 0
           }
-          return;
+          return
         }
-        if(tempX < 0 && tempY == 0) {
+        if (tempX < 0 && tempY == 0) {
           this.pupilStyle = {
             top: `${this.eyeStyle.radius - this.pupilRadius}px`,
             left: `${this.eyeStyle.radius * 2 - this.pupilRadius * 2}px`
           }
-          return;
+          return
         }
 
-        let angle = Math.atan((p2[1] - p1[1]) / (p2[0] - p1[0]));
-        let y = Math.sin(angle) * (this.eyeStyle.radius - this.pupilRadius);
-        let x = Math.cos(angle) * (this.eyeStyle.radius - this.pupilRadius);
-        
-        if((tempX > 0 && tempY > 0) || (tempX > 0 && tempY < 0)) {
+        let angle = Math.atan((p2[1] - p1[1]) / (p2[0] - p1[0]))
+        let y = Math.sin(angle) * (this.eyeStyle.radius - this.pupilRadius)
+        let x = Math.cos(angle) * (this.eyeStyle.radius - this.pupilRadius)
+
+        if ((tempX > 0 && tempY > 0) || (tempX > 0 && tempY < 0)) {
           // 第二象限 或 第三象限
           x = x * -1
           y = y * -1
         }
-        
+
         this.pupilStyle = {
           top: `${y + this.eyeStyle.radius - this.pupilRadius}px`,
           left: `${x + this.eyeStyle.radius - this.pupilRadius}px`
         }
       }
     },
-    distance(p1, p2){
-      var a = p2[0]-p1[0];
-      var b = p2[1]-p1[1];
-      return Math.sqrt(a*a+b*b);
-    },
+    distance(p1, p2) {
+      var a = p2[0] - p1[0]
+      var b = p2[1] - p1[1]
+      return Math.sqrt(a * a + b * b)
+    }
   },
   destroyed() {
-    document.removeEventListener('mousemove', this.onMouseMove);
+    document.removeEventListener('mousemove', this.onMouseMove)
   }
 }
 </script>
@@ -211,10 +205,10 @@ export default {
         font-size: 36px;
         font-family: Source Han Sans CN;
         font-weight: 500;
-        color: #FFFFFF;
+        color: #ffffff;
         line-height: 36px;
         text-align: left;
-        i{
+        i {
           display: inline-block;
           font-style: normal;
           transform: scale(0.6);
@@ -225,14 +219,14 @@ export default {
         font-size: 16px;
         font-family: 'Montserrat';
         font-weight: 500;
-        color: #FFFFFF;
+        color: #ffffff;
         text-align: left;
       }
     }
     .main {
       display: flex;
       align-items: center;
-      .logo{
+      .logo {
         display: inline-flex;
         margin-right: 42px;
         white-space: nowrap;
@@ -251,7 +245,7 @@ export default {
             opacity: 1 !important;
             transform: translate(-50%, -50%) scale(1) rotate(0) !important;
           }
-          .hoverimg{
+          .hoverimg {
             position: absolute;
             z-index: 100;
             top: 50%;
@@ -264,15 +258,15 @@ export default {
           }
         }
       }
-      
-      .fish-container{
+
+      .fish-container {
         position: relative;
         width: 215px;
         height: 163px;
         .fish {
           width: 100%;
         }
-        .eye{
+        .eye {
           width: 32px;
           height: 32px;
           border-radius: 50%;
@@ -280,7 +274,7 @@ export default {
           position: absolute;
           left: 17px;
           top: 38px;
-          .pupil{
+          .pupil {
             position: absolute;
             background-color: #000;
             width: 14px;
@@ -291,17 +285,17 @@ export default {
       }
     }
   }
-  .bottom{
+  .bottom {
     font-family: 'Montserrat';
     display: flex;
     font-size: 16px;
     font-weight: 500;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-top: 80px;
-    .desp{
+    .desp {
       text-align: left;
       width: 40%;
-      span{
+      span {
         display: block;
       }
     }
@@ -319,7 +313,7 @@ export default {
     font-size: 16px;
     font-family: Montserrat;
     font-weight: 500;
-    color: #D3D3D3;
+    color: #d3d3d3;
   }
 }
 </style>
