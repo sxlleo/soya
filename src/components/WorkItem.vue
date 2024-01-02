@@ -39,7 +39,7 @@ export default {
     }
   },
   created() {
-    import(/* webpackChunkName: "image" */ this.gif.hover)
+    // import(/* webpackChunkName: "image" */ this.gif.hover)
   },
   methods: {
     onLoad() {
