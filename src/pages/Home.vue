@@ -2,7 +2,7 @@
   <div class="home">
     <div class="content">
       <div class="top">
-        <span>索亚工作室<i>®</i></span>
+        <span>索亚工作室</span>
         <span> SOYA STUDIO IS A CREATIVE MOTION DESIGN <br />AGENCY, BASED IN SHENZHEN. </span>
       </div>
       <div class="main">
