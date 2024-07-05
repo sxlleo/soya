@@ -2,7 +2,7 @@
   <div class="work-item" :key="`gif${gifIndex}`" @mouseenter="onMouseenter" @mouseleave="onMouseleave" @click="onClickWork(gif.zcoolUrl)">
     <div>
       <div v-if="!loadResult" :style="{ 'margin-top': `${(100 * 655) / 1166}%` }"></div>
-      <img v-show="loadResult" :src="gif.card" alt lazyload="on" @load="onLoad" />
+      <img :data-src="gif.card" class="lazy" @load="onLoad" />
       <img v-if="isHover" :class="['hover', { show: playAnim }]" :src="gif.hover" />
     </div>
     <p class="title">{{ gif.title }}</p>
