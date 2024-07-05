@@ -1,8 +1,7 @@
 <template>
   <div class="work-item" :key="`gif${gifIndex}`" @mouseenter="onMouseenter" @mouseleave="onMouseleave" @click="onClickWork(gif.zcoolUrl)">
     <div>
-      <div v-if="!loadResult" :style="{ 'margin-top': `${(100 * 655) / 1166}%` }"></div>
-      <img :data-src="gif.card" class="lazy" @load="onLoad" />
+      <img :data-src="gif.card" class="lazy" />
       <img v-if="isHover" :class="['hover', { show: playAnim }]" :src="gif.hover" />
     </div>
     <p class="title">{{ gif.title }}</p>
@@ -33,7 +32,6 @@ export default {
   },
   data() {
     return {
-      loadResult: false,
       isHover: false,
       playAnim: false
     }
@@ -42,9 +40,6 @@ export default {
     // import(/* webpackChunkName: "image" */ this.gif.hover)
   },
   methods: {
-    onLoad() {
-      this.loadResult = true
-    },
     onClickWork(url) {
       window.open(url, '_blank')
     },
@@ -68,6 +63,7 @@ export default {
   position: relative;
   width: 32.5%;
   cursor: pointer;
+  overflow: hidden;
   img {
     width: 100%;
   }
@@ -94,7 +90,6 @@ export default {
     font-size: 14px;
     font-family: 'Montserrat';
     font-weight: 500;
-    line-height: 0px;
     color: #9b9b9b;
   }
 }
